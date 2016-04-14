@@ -1,0 +1,21 @@
+target
+generated
+bin
+logs
+*.iml
+*.iws
+*.ipr
+.idea
+.project
+.classpath
+.settings
+.cache
+.history
+#
+# MANIFEST.MF
+# git > 1.8.2 allows **/ pattern
+**/META-INF/MANIFEST.MF
+activemq-data/
+.externalToolBuilders
+maven-eclipse.xml
+generated-schema
