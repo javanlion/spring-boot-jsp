@@ -1,4 +1,6 @@
 <%@ page import="java.util.Map" %>
+<%@ page import="com.hp.gagawa.java.elements.Pre" %>
+<%@ page import="com.hp.gagawa.java.elements.Script" %>
 <!DOCTYPE html>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -29,6 +31,10 @@ Message from c:out tag [<b><c:out value="${message}"/></b>]
 </body>
 <br>
 <pre>
+
+	<%
+		request.setAttribute("errorMessage", "Error.......!");
+	%>
 	<%
 		Object errorMsg = request.getParameter("message");
 		Map<String, String[]> parameterMap = request.getParameterMap();
@@ -43,5 +49,20 @@ Message from c:out tag [<b><c:out value="${message}"/></b>]
 		}
 	%>
 </pre>
+<p>=============================1===================================</p>
+<pre>
+	<%
+		Map<String, String[]> parameterMap2 = request.getParameterMap();
+		Pre pre = new Pre();
+		pre.appendText("Map: " + parameterMap2.toString());
+		out.println(pre.write());
+	%>
+</pre>
+<p>=============================2===================================</p>
+<pre><c:out value='<%=request.getAttribute("errorMessage")%>'/></pre>
+<p>=============================3===================================</p>
+<script>
+	alert('<c:out value="${message}"/>')
+</script>
 
 </html>
